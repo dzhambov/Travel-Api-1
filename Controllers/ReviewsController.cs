@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -19,16 +20,16 @@ namespace TravelAPI.Controllers
 
     // GET api/reviews
     [HttpGet]
-    public ActionResult<IEnumerable<Review>> Get(string user_name, int rating)
+    public ActionResult<IEnumerable<Review>> Get(string username, string rating)
     {
       var query = _db.Review.AsQueryable();
 
-      if (user_name != null)
+      if (username != null)
       {
-        query = query.Where(entry => entry.user_name == user_name);
+        query = query.Where(entry => entry.user_name == username);
       }
 
-      if (rating >= 0)
+      if (rating != null)
       {
         query = query.Where(entry => entry.Rating == rating);
       }
@@ -43,7 +44,7 @@ namespace TravelAPI.Controllers
       _db.Review.Add(review);
       Destination destination = _db.Destination.FirstOrDefault(dest => dest.DestinationId == review.DestinationId);
       destination.Reviews.Add(review);
-      destination.Rating = (destination.Reviews.Sum(dest => dest.Rating)/destination.Reviews.Count);
+      destination.Rating = (destination.Reviews.Sum(dest => Convert.ToInt32(dest.Rating))/destination.Reviews.Count);
       _db.Entry(destination).State = EntityState.Modified;
       _db.SaveChanges();
     }

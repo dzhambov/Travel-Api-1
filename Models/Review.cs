@@ -6,6 +6,6 @@ namespace TravelAPI.Models
     public int DestinationId { get; set; }
     public string ReviewText { get; set; }
     public string user_name { get; set; }
-    public int Rating { get; set; }
+    public string Rating { get; set; }
   }
 }

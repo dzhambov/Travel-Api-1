@@ -24,11 +24,11 @@ namespace TravelAPI.Models
           );
       builder.Entity<Review>()
           .HasData(
-            new Review { ReviewId = 1, DestinationId = 1, ReviewText = "United States", user_name = "New York user_name", Rating = 7 },
-            new Review { ReviewId = 2, DestinationId = 2, ReviewText = "England", user_name = "London", Rating = 10 },
-            new Review { ReviewId = 3, DestinationId = 3, ReviewText = "Canada", user_name = "Toronto", Rating = 2 },
-            new Review { ReviewId = 4, DestinationId = 4, ReviewText = "China", user_name = "Guangzho", Rating = 4 },
-            new Review { ReviewId = 5, DestinationId = 5, ReviewText = "Northern Ireland", user_name = "Belfast", Rating = 10 } 
+            new Review { ReviewId = 1, DestinationId = 1, ReviewText = "United States", user_name = "New York", Rating = "7" },
+            new Review { ReviewId = 2, DestinationId = 2, ReviewText = "England", user_name = "London", Rating = "10" },
+            new Review { ReviewId = 3, DestinationId = 3, ReviewText = "Canada", user_name = "Toronto", Rating = "2" },
+            new Review { ReviewId = 4, DestinationId = 4, ReviewText = "China", user_name = "Guangzho", Rating = "4" },
+            new Review { ReviewId = 5, DestinationId = 5, ReviewText = "Northern Ireland", user_name = "Belfast", Rating = "10" } 
           );
     }
   }
