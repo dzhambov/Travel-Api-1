@@ -17,11 +17,5 @@ namespace TravelAPI.Models
     public string City { get; set; }
     public int Rating { get; set; }
     public List<Review> Reviews {get;set;}
-
-    // public Destination()
-    // {
-    //   Reviews = _db.Review.Where(entry => entry.DestinationId == DestinationId).ToList();
-    //   Rating = (this.Reviews.Sum(destination => destination.Rating)/this.Reviews.Count);
-    // }
   }
 }

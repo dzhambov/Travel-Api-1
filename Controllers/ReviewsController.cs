@@ -43,7 +43,7 @@ namespace TravelAPI.Controllers
       _db.Review.Add(review);
       Destination destination = _db.Destination.FirstOrDefault(dest => dest.DestinationId == review.DestinationId);
       destination.Reviews.Add(review);
-      destination.Rating = (destination.Reviews.Sum(dest => destination.Rating)/destination.Reviews.Count);
+      destination.Rating = (destination.Reviews.Sum(dest => dest.Rating)/destination.Reviews.Count);
       _db.Entry(destination).State = EntityState.Modified;
       _db.SaveChanges();
     }
