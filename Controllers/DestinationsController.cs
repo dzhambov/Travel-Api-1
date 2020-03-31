@@ -19,7 +19,7 @@ namespace TravelAPI.Controllers
 
      // GET api/destinations
     [HttpGet]
-    public ActionResult<IEnumerable<Destination>> Get(string country, string city, int rating)
+    public ActionResult<IEnumerable<Destination>> Get(string country, string city, int? rating)
     {
       var query = _db.Destination.AsQueryable();
 
@@ -33,7 +33,7 @@ namespace TravelAPI.Controllers
         query = query.Where(entry => entry.City == city);
       }
 
-      if (rating >= 0)
+      if (rating != null)
       {
         query = query.Where(entry => entry.Rating == rating);
       }
